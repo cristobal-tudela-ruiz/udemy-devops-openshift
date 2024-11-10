@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sonarqube-v1
+  labels:
+    app: sonarqube
+  annotations:
+    app.openshift.io/vcs-ref: develop
+    app.openshift.io/vcs-uri: 'https://github.com/cristobal-tudela-ruiz/udemy-apps-openshift.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ports:
+    - name: 9000-tcp
+      protocol: TCP
+      port: 9000
+      targetPort: 9000
+  selector:
+    app: sonarqube
